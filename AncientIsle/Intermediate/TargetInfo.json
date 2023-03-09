@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "AncientIsle",
+			"Path": "F:\\University\\Year2\\Semester2\\GameEngineArchitecture\\Coursework\\This-Ancient-Isle\\AncientIsle\\Source\\AncientIsle.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "AncientIsleEditor",
+			"Path": "F:\\University\\Year2\\Semester2\\GameEngineArchitecture\\Coursework\\This-Ancient-Isle\\AncientIsle\\Source\\AncientIsleEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

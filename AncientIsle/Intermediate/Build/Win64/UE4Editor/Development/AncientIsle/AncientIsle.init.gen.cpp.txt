@@ -1,0 +1,3 @@
+F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Intermediate\Build\Win64\UE4Editor\Development\AncientIsle\Definitions.AncientIsle.h
+D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h

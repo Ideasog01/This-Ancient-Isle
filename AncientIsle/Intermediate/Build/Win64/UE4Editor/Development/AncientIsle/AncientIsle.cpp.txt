@@ -1,0 +1,2 @@
+F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Intermediate\Build\Win64\UE4Editor\Development\AncientIsle\Definitions.AncientIsle.h
+F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Source\AncientIsle\AncientIsle.h
