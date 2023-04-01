@@ -56,7 +56,7 @@ void APlayerCharacter::MoveRight(float axis)
 
 void APlayerCharacter::LookUp(float axis)
 {
-	AddControllerPitchInput(axis * CameraRotationSpeed);
+	AddControllerPitchInput(axis * -CameraRotationSpeed);
 }
 
 void APlayerCharacter::LookRight(float axis)
