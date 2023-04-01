@@ -1,9 +1,0 @@
-F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Intermediate\Build\Win64\UE4Editor\Development\AncientIsle\Definitions.AncientIsle.h
-D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Source\AncientIsle/AncientIsleGameModeBase.h
-D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-F:\University\Year2\Semester2\GameEngineArchitecture\Coursework\This-Ancient-Isle\AncientIsle\Intermediate\Build\Win64\UE4Editor\Inc\AncientIsle\AncientIsleGameModeBase.generated.h
