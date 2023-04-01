@@ -9,6 +9,9 @@ AMovingPlatform::AMovingPlatform()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	PlatformMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlatformMesh"));
+	PlatformCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("PlatformCollider"));
+
 }
 
 // Called when the game starts or when spawned

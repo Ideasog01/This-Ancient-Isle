@@ -37,8 +37,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("MouseY", this, &APlayerCharacter::LookUp);
-	PlayerInputComponent->BindAxis("MouseX", this, &APlayerCharacter::LookRight);
+	PlayerInputComponent->BindAxis("MouseY", this, &APlayerCharacter::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("MouseX", this, &APlayerCharacter::AddControllerYawInput);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 
@@ -46,21 +46,12 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 void APlayerCharacter::MoveForward(float axis)
 {
-	AddMovementInput(GetActorForwardVector() * axis);
+	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::X);
+	AddMovementInput(Direction, axis);
 }
 
 void APlayerCharacter::MoveRight(float axis)
 {
-	AddMovementInput(GetActorRightVector() * axis);
+	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::Y);
+	AddMovementInput(Direction, axis);
 }
-
-void APlayerCharacter::LookUp(float axis)
-{
-	AddControllerPitchInput(axis * -CameraRotationSpeed);
-}
-
-void APlayerCharacter::LookRight(float axis)
-{
-	AddControllerYawInput(axis * CameraRotationSpeed);
-}
-
