@@ -9,11 +9,8 @@ APlayerCharacter::APlayerCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera Arm"));
-	CameraArm->SetupAttachment(RootComponent);
-
 	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Player Camera"));
-	PlayerCamera->SetupAttachment(CameraArm);
+	PlayerCamera->AttachTo(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -46,12 +43,10 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 void APlayerCharacter::MoveForward(float axis)
 {
-	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::X);
-	AddMovementInput(Direction, axis);
+	AddMovementInput(GetActorForwardVector(), axis);
 }
 
 void APlayerCharacter::MoveRight(float axis)
 {
-	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::Y);
-	AddMovementInput(Direction, axis);
+	AddMovementInput(GetActorRightVector(), axis);
 }

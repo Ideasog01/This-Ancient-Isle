@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 
-#include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
 #include "PlayerCharacter.generated.h"
@@ -18,9 +17,6 @@ class ANCIENTISLE_API APlayerCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	APlayerCharacter();
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
-	USpringArmComponent* CameraArm;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
 	UCameraComponent* PlayerCamera;
