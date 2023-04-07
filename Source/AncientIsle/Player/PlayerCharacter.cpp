@@ -34,19 +34,49 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("MouseY", this, &APlayerCharacter::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("MouseX", this, &APlayerCharacter::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("MouseY", this, &APlayerCharacter::LookUp);
+	PlayerInputComponent->BindAxis("MouseX", this, &APlayerCharacter::LookRight);
 
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &APlayerCharacter::PlayerJump);
 
 }
 
 void APlayerCharacter::MoveForward(float axis)
 {
-	AddMovementInput(GetActorForwardVector(), axis);
+	if (!bDisablePlayer)
+	{
+		AddMovementInput(GetActorForwardVector(), axis);
+	}
 }
 
 void APlayerCharacter::MoveRight(float axis)
 {
-	AddMovementInput(GetActorRightVector(), axis);
+	if(!bDisablePlayer)
+	{
+		AddMovementInput(GetActorRightVector(), axis);
+	}
+}
+
+void APlayerCharacter::LookUp(float axis)
+{
+	if(!bDisablePlayer)
+	{
+		AddControllerPitchInput(axis);
+	}
+}
+
+void APlayerCharacter::LookRight(float axis)
+{
+	if(!bDisablePlayer)
+	{
+		AddControllerYawInput(axis);
+	}
+}
+
+void APlayerCharacter::PlayerJump()
+{
+	if (!bDisablePlayer)
+	{
+		Jump();
+	}
 }

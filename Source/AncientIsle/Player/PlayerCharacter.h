@@ -18,6 +18,9 @@ public:
 	// Sets default values for this character's properties
 	APlayerCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bDisablePlayer;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
 	UCameraComponent* PlayerCamera;
 
@@ -40,4 +43,10 @@ private:
 	void MoveForward(float axis);
 
 	void MoveRight(float axis);
+
+	void LookUp(float axis);
+
+	void LookRight(float axis);
+
+	void PlayerJump();
 };
