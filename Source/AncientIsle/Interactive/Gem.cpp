@@ -9,8 +9,11 @@ AGem::AGem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Box Component"));
+	BoxComponent->SetupAttachment(RootComponent);
+
 	GemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Gem Mesh"));
-	GemMesh->SetupAttachment(RootComponent);
+	GemMesh->SetupAttachment(BoxComponent);
 
 }
 

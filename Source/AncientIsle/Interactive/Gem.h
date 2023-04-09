@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 
 #include "Components/StaticMeshComponent.h"
+#include "Components/BoxComponent.h"
 
 #include "Gem.generated.h"
 
@@ -32,6 +33,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* GemMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UBoxComponent* BoxComponent;
 
 protected:
 	// Called when the game starts or when spawned
