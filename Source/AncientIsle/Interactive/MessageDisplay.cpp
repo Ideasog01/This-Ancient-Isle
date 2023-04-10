@@ -14,7 +14,7 @@ AMessageDisplay::AMessageDisplay()
 
 }
 
-FString AMessageDisplay::GetMessageContent()
+FText AMessageDisplay::GetMessageContent()
 {
 	return messageContent;
 }

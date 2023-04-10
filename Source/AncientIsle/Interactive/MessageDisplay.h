@@ -22,7 +22,7 @@ public:
 	UBoxComponent* TriggerBox;
 
 	UFUNCTION(BlueprintCallable)
-	FString GetMessageContent();
+	FText GetMessageContent();
 
 protected:
 	// Called when the game starts or when spawned
@@ -35,6 +35,6 @@ public:
 private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
-	FString messageContent;
+	FText messageContent;
 
 };
