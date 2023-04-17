@@ -32,10 +32,10 @@ public:
 	AGem();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UStaticMeshComponent* GemMesh;
+	UBoxComponent* BoxComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UBoxComponent* BoxComponent;
+	UStaticMeshComponent* GemMesh;
 
 protected:
 	// Called when the game starts or when spawned
