@@ -6,6 +6,10 @@
 #include "GameFramework/Character.h"
 
 #include "Camera/CameraComponent.h"
+#include "Components/StaticMeshComponent.h"
+
+#include "Kismet/KismetSystemLibrary.h"
+#include "DrawDebugHelpers.h"
 
 #include "PlayerCharacter.generated.h"
 
@@ -24,8 +28,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
 	UCameraComponent* PlayerCamera;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
+	UStaticMeshComponent* CarryItemMesh;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Settings")
 	float CameraRotationSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
+	float TraceDistance = 500;
 
 protected:
 	// Called when the game starts or when spawned
@@ -49,4 +59,12 @@ private:
 	void LookRight(float axis);
 
 	void PlayerJump();
+
+	void PickupItem();
+
+	void DropItem();
+
+private:
+
+	AActor* ItemActor;
 };
