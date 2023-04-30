@@ -40,6 +40,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
 	AActor* ItemActor;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
+	int TalismanCount;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

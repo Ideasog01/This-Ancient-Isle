@@ -110,11 +110,12 @@ void APlayerCharacter::PickupItem()
 
 		if (Hit.GetActor()->ActorHasTag("Item")) //If the actor is a gem, then equip to the player 'carry mesh' and disable the mesh
 		{
-			ItemActor = Hit.GetActor();
+			AActor* HitActor = Hit.GetActor();
 
 			//Find the item's mesh
 			TArray<UStaticMeshComponent*> Components;
-			ItemActor->GetComponents<UStaticMeshComponent>(Components);
+			HitActor->GetComponents<UStaticMeshComponent>(Components);
+
 			for (int32 i = 0; i < Components.Num(); i++)
 			{
 				UStaticMeshComponent* StaticMeshComponent = Components[i];
@@ -122,14 +123,24 @@ void APlayerCharacter::PickupItem()
 
 				if (StaticMesh != nullptr)
 				{
-					//Match the material and mesh to the picked up item
-					CarryItemMesh->SetStaticMesh(StaticMesh);
-					CarryItemMesh->SetMaterial(0, StaticMeshComponent->GetMaterial(0));
+					if (Hit.GetActor()->ActorHasTag("Talisman"))
+					{
+						TalismanCount++;
+						GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Purple, FString::Printf(TEXT("Talisman Picked Up!")));
+					}
+					else
+					{
+						//Match the material and mesh to the picked up item
+						ItemActor = HitActor;
+						CarryItemMesh->SetStaticMesh(StaticMesh);
+						CarryItemMesh->SetMaterial(0, StaticMeshComponent->GetMaterial(0));
+					}
+
 					break;
 				}
 			}
 
-			ItemActor->SetActorHiddenInGame(true); //Hide the original item that has been picked up
+			HitActor->SetActorHiddenInGame(true); //Hide the original item that has been picked up
 		}
 	}
 }
