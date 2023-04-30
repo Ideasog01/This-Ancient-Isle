@@ -37,6 +37,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
 	float TraceDistance = 500;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
+	AActor* ItemActor;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -47,6 +50,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION(BlueprintCallable)
+	void DropItem();
 
 private:
 
@@ -62,9 +68,4 @@ private:
 
 	void PickupItem();
 
-	void DropItem();
-
-private:
-
-	AActor* ItemActor;
 };
