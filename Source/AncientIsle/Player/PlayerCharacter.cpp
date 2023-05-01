@@ -106,6 +106,11 @@ void APlayerCharacter::PickupItem()
 
 	if(bHit)
 	{
+		if (!Hit.GetActor()) //If the actor is null, abort
+		{
+			return;
+		}
+
 		GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Orange, FString::Printf(TEXT("Trace Hit: %s "), *Hit.GetActor()->GetName()));
 
 		if (Hit.GetActor()->ActorHasTag("Item")) //If the actor is a gem, then equip to the player 'carry mesh' and disable the mesh
@@ -127,6 +132,16 @@ void APlayerCharacter::PickupItem()
 					{
 						TalismanCount++;
 						GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Purple, FString::Printf(TEXT("Talisman Picked Up!")));
+					}
+					else if (Hit.GetActor()->ActorHasTag("Note"))
+					{
+						DisplayNote();
+
+						NoteObject = Cast<ANoteObject>(Hit.GetActor());
+
+						NoteAddresse = NoteObject->GetAddressee();
+						NoteMain = NoteObject->GetMain();
+						NoteSender = NoteObject->GetSender();
 					}
 					else
 					{

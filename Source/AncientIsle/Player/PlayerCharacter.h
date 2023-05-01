@@ -7,6 +7,7 @@
 
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "AncientIsle/Interactive/NoteObject.h"
 
 #include "Kismet/KismetSystemLibrary.h"
 #include "DrawDebugHelpers.h"
@@ -43,6 +44,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
 	int TalismanCount;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
+	FString NoteAddresse;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
+	FString NoteMain;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
+	FString NoteSender;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
+	ANoteObject* NoteObject;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -56,6 +69,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DropItem();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void DisplayNote(); //Blueprint Event
 
 private:
 
