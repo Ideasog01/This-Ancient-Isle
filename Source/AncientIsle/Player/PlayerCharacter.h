@@ -10,7 +10,9 @@
 #include "AncientIsle/Interactive/NoteObject.h"
 
 #include "Kismet/KismetSystemLibrary.h"
+#include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
+#include "Sound/SoundCue.h"
 
 #include "PlayerCharacter.generated.h"
 
@@ -55,6 +57,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
 	ANoteObject* NoteObject;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound Effects")
+	USoundCue* TalismanSfx;
+
 
 protected:
 	// Called when the game starts or when spawned

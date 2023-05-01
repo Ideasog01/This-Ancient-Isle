@@ -132,6 +132,7 @@ void APlayerCharacter::PickupItem()
 					{
 						TalismanCount++;
 						GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Purple, FString::Printf(TEXT("Talisman Picked Up!")));
+						UGameplayStatics::PlaySound2D(this, TalismanSfx);
 					}
 					else if (Hit.GetActor()->ActorHasTag("Note"))
 					{
