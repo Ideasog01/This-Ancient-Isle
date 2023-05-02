@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "AncientIsle/Interactive/NoteObject.h"
+#include "AncientIsle/Interactive/RunePuzzle.h"
 
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/GameplayStatics.h"
@@ -34,32 +35,34 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Additional Components")
 	UStaticMeshComponent* CarryItemMesh;
 
+public:
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Settings")
-	float CameraRotationSpeed;
+	float CameraRotationSpeed = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
 	float TraceDistance = 500;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
-	AActor* ItemActor;
+	AActor* ItemActor = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Carry Items")
-	int TalismanCount;
+	int TalismanCount = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
-	FString NoteAddresse;
+	FString NoteAddresse = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
-	FString NoteMain;
+	FString NoteMain = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
-	FString NoteSender;
+	FString NoteSender = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note Properties")
-	ANoteObject* NoteObject;
+	ANoteObject* NoteObject = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound Effects")
-	USoundCue* TalismanSfx;
+	USoundCue* TalismanSfx = nullptr;
 
 
 protected:

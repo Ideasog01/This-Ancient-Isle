@@ -144,7 +144,14 @@ void APlayerCharacter::PickupItem()
 						NoteMain = NoteObject->GetMain();
 						NoteSender = NoteObject->GetSender();
 					}
-					else
+					else if (Hit.GetComponent()->ComponentHasTag("Rune"))
+					{
+						ARunePuzzle* RunePuzzle = Cast<ARunePuzzle>(Hit.GetActor());
+						UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+						RunePuzzle->RotateRuneCube(HitMesh);
+						return;
+					}
+					else if(!Hit.GetActor()->ActorHasTag("Ignore"))
 					{
 						//Match the material and mesh to the picked up item
 						ItemActor = HitActor;
@@ -156,7 +163,10 @@ void APlayerCharacter::PickupItem()
 				}
 			}
 
-			HitActor->SetActorHiddenInGame(true); //Hide the original item that has been picked up
+			if(!Hit.GetActor()->ActorHasTag("Ignore"))
+			{
+				HitActor->SetActorHiddenInGame(true); //Hide the original item that has been picked up
+			}
 		}
 	}
 }
